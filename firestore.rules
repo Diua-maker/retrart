@@ -1,0 +1,63 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Coleção de Artistas: Leitura pública, gravação permitida para cadastro e atualizações
+    match /retratistas_artists/{artistId} {
+      allow read, write: if true;
+    }
+    
+    // Coleção de Obras de Arte (Artworks): Leitura pública, gravação permitida para publicação de novas obras
+    match /retratistas_artworks/{artworkId} {
+      allow read, write: if true;
+    }
+    
+    // Avaliações (Reviews): Leitura pública, gravação permitida para clientes avaliarem artistas
+    match /retratistas_reviews/{reviewId} {
+      allow read, write: if true;
+    }
+    
+    // Comentários (Comments): Leitura pública, gravação permitida para feedback em tempo real
+    match /retratistas_comments/{commentId} {
+      allow read, write: if true;
+    }
+    
+    // Encomendas (Orders): Leitura e gravação permitida para gerenciar pedidos e comissões
+    match /retratistas_orders/{orderId} {
+      allow read, write: if true;
+    }
+    
+    // Conversas e Mensagens de Chat: Permissão total para comunicação instantânea
+    match /retratistas_conversations/{convId} {
+      allow read, write: if true;
+    }
+    match /retratistas_chats/{chatId} {
+      allow read, write: if true;
+    }
+    
+    // Notificações em tempo real
+    match /retratistas_notifications/{notifId} {
+      allow read, write: if true;
+    }
+    
+    // Utilizadores comuns / Clientes
+    match /retratistas_common_users/{userId} {
+      allow read, write: if true;
+    }
+    
+    // Configurações Globais da Plataforma (Logótipo e Imagem de Banner)
+    match /retrart_moz_platform_config/{configId} {
+      allow read, write: if true;
+    }
+    
+    // Histórico de Acessos / Login Logs
+    match /retratistas_login_history/{logId} {
+      allow read, write: if true;
+    }
+
+    // Regra Geral de Salvaguarda: Permite leitura e escrita para todos os documentos neste modo
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

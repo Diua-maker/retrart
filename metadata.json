@@ -1,0 +1,6 @@
+{
+  "name": "RetrArt Moz",
+  "description": "A maior plataforma online de encomendas e galeria de retratos RetrArt Moz, conectando artistas e clientes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
